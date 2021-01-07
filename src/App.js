@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import "./App.css"
+import Navbar from "./components/Navbar"
+import Todo from "./components/Todo"
+import Todos from "./data"
+class App extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            todos: Todos
+        }
+        this.clickHandler = this.clickHandler.bind(this)
+    }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    clickHandler(id){
+        this.setState(prevTodo => {
+            const updatedTodo = prevTodo.todos.map(todo => {
+                if(todo.id === id){
+                    todo.completed = !todo.completed
+                }
+                console.log(todo)
+                return todo
+            })
+            return updatedTodo
+        })
+    }
+
+    render(){
+        const todo = this.state.todos.map(eachTodo => {
+            return <Todo id={eachTodo.id} completed={eachTodo.completed} task={eachTodo.task} 
+            key={eachTodo.id} 
+            handler={this.clickHandler}/>
+        })
+        return(
+            <div className="container">
+                <Navbar />
+                <div className="todo-box">
+                    {todo}
+                </div>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App
