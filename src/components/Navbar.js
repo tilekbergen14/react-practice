@@ -7,7 +7,7 @@ function Navbar(){
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/todo">Todos</Link></li>
-                <li><Link to="/context">LearnContext</Link></li>
+                <li><Link to="/movies">Movies</Link></li>
             </ul>
         </div>
     )

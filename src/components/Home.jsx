@@ -1,5 +1,5 @@
 import React from 'react'
-import bleach from "../bleach.jpg"
+import bleach from "../images/bleach.jpg"
 const Home = () => {
 
     return(

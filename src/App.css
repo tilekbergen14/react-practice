@@ -16,6 +16,7 @@ body{
 .container{
   width: 90%;
   margin: 0 auto;
+  height: 100vh;
 }
 .homepage{
   text-align: center;
@@ -78,4 +79,31 @@ a{
 .bx:hover{
   color: #17b978;
   background-color: #fff;
+}
+
+/******* total *******/
+.total{
+  position: absolute;
+  bottom: 100px;
+  width: 90%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #17b978;
+}
+
+/***movies***/
+.movie-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movie-box{
+  text-align: center;
+  margin: 10px
+}
+.movie-img{
+  height: 300px;
+  width: 200px;
 }
