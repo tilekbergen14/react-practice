@@ -49,7 +49,6 @@ export const MovieContextProvider = (props) => {
         state.push(newMovie)
     }
     function movieName(event){
-        console.log(state)
         name = event.target.value
     }
     function movieUrl(event){
