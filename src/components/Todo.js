@@ -22,7 +22,6 @@ class Todo extends React.Component{
                 <i onClick={() => this.props.onDelete(this.props.id)} className='bx bxs-trash-alt' ></i>
                 <div className="total">
                             <Total />
-                            {console.log(this.props.params)}
                         </div>
             </div>
         )

@@ -9,6 +9,7 @@ import {ContextProvider} from "./Context"
 import {MovieContextProvider} from "./MovieContext"
 import Movies from './components/Movies'
 import Movie from "./components/Movie"
+import MovieForm from "./components/MovieForm"
 
 class App extends React.Component{
     render(){
@@ -23,6 +24,7 @@ class App extends React.Component{
                             <Route path="/todo/:id" exact component={EachTodo}></Route>
                             <Route path="/movies" exact component={Movies}></Route>
                             <Route path="/movies/:id" exact component={Movie}></Route>
+                            <Route path="/addmovie" exact component={MovieForm}></Route>
                         </Switch>
                     </div>
                     </MovieContextProvider>

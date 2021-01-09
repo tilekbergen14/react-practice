@@ -32,12 +32,44 @@ export const MovieContextProvider = (props) => {
             img: jumong
         },
 
-    ])
+    ],
+    )
+    let name, url, img
+    function addMovie(){
+        const id = state.length + 1
+        const newMovie = {
+            name: name,
+            url: url,
+            img: img,
+            id: id
+        }
+        name = ""
+        url =""
+        img=""
+        state.push(newMovie)
+    }
+    function movieName(event){
+        console.log(state)
+        name = event.target.value
+    }
+    function movieUrl(event){
+        url = event.target.value
+    }
+    function movieImg(event){
+        img = event.target.value
+    }
     return (
         <MovieContext.Provider value={{
-            movies:state }}>
+            movies:state,
+            addMovie: addMovie,
+            movieName: movieName,
+            movieUrl: movieUrl,
+            movieImg: movieImg,
+            name: name,
+            url: url,
+            img: img,
+        }}>
             {props.children}
         </MovieContext.Provider>
     );
 }
-
