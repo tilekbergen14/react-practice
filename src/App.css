@@ -17,7 +17,12 @@ body{
   width: 90%;
   margin: 0 auto;
 }
-
+.homepage{
+  text-align: center;
+}
+.homepage h4{
+  margin: 10px;
+}
 /*******Navbar*******/
 .navbar{
   display: flex;
@@ -26,7 +31,7 @@ body{
 
 }
 .logo{
-  flex: 4;
+  flex: 1;
 }
 .navbar ul{
   flex: 1;

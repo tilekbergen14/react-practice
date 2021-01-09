@@ -1,43 +1,24 @@
 import React from "react"
 import "./App.css"
 import Navbar from "./components/Navbar"
-import Todo from "./components/Todo"
-import Todos from "./data"
+import Todos from "./components/Todos"
+import {Switch, Route} from "react-router-dom"
+import Home from "./components/Home"
+import EachTodo from "./components/EachTodo"
+import {ContextProvider} from "./Context"
 class App extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            todos: Todos
-        }
-        this.clickHandler = this.clickHandler.bind(this)
-    }
-
-    clickHandler(id){
-        this.setState(prevTodo => {
-            const updatedTodo = prevTodo.todos.map(todo => {
-                if(todo.id === id){
-                    todo.completed = !todo.completed
-                }
-                console.log(todo)
-                return todo
-            })
-            return updatedTodo
-        })
-    }
-
     render(){
-        const todo = this.state.todos.map(eachTodo => {
-            return <Todo id={eachTodo.id} completed={eachTodo.completed} task={eachTodo.task} 
-            key={eachTodo.id} 
-            handler={this.clickHandler}/>
-        })
         return(
-            <div className="container">
-                <Navbar />
-                <div className="todo-box">
-                    {todo}
-                </div>
-            </div>
+                <ContextProvider>
+                    <div className="container">
+                    <Navbar />
+                        <Switch>
+                            <Route path="/" exact component={Home}></Route>
+                            <Route path="/todo" exact component={Todos}></Route>
+                            <Route path="/todo/:id" exact component={EachTodo}></Route>
+                        </Switch>
+                    </div>
+                </ContextProvider>
         )
     }
 }
